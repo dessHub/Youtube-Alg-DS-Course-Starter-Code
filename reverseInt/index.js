@@ -7,7 +7,18 @@
 //   reverseInt(-13) === -31
 //   reverseInt(-100) === -1
 
-function reverseInt(n) {}
+function reverseInt(n) {
+  let reversedStrN = n
+     .toString()
+     .split('')
+     .reverse()
+     .join('');
+  reversedStrN = parseInt(reversedStrN);
+  if (n < 1) {
+    reversedStrN *= -1
+  }
+  return reversedStrN
+}
 
 // _________ _______  _______ _________   _______  _______  _______  _______  _______
 // \__   __/(  ____ \(  ____ \\__   __/  (  ____ \(  ___  )(  ____ \(  ____ \(  ____ \

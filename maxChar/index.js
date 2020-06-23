@@ -3,7 +3,20 @@
 // maxChar("I loveeeeeee noodles") === "e"
 // maxChar("1337") === "3"
 
-function maxChar(str) {}
+function maxChar(str) {
+  let seenChars = {}
+  let maxC = ''
+  let maxCount = 0
+  str.split('').forEach(item => {
+    seenChars[item] = seenChars[item] + 1 || 1
+
+    if(seenChars[item] > maxCount) {
+      maxC = item
+      maxCount = seenChars[item]
+    }
+  })
+  return maxC
+}
 
 // _________ _______  _______ _________   _______  _______  _______  _______  _______
 // \__   __/(  ____ \(  ____ \\__   __/  (  ____ \(  ___  )(  ____ \(  ____ \(  ____ \

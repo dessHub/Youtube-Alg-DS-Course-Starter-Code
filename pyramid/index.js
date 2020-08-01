@@ -13,7 +13,16 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {}
+function pyramid(n) {
+  let steps = "";
+  let i = 1;
+  while (i <= n) {
+    const padding = " ".repeat(n-i)
+    steps = "#".repeat(i * 2 - 1)
+    console.log(padding + steps + padding)
+    i += 1;
+  }
+}
 
 // _________ _______  _______ _________   _______  _______  _______  _______  _______
 // \__   __/(  ____ \(  ____ \\__   __/  (  ____ \(  ___  )(  ____ \(  ____ \(  ____ \

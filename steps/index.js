@@ -16,7 +16,16 @@
 //       '### '
 //       '####'
 
-function steps(n) {}
+function steps(n) {
+  let i = 1;
+  while (i <= n) {
+    const noOfSpaces = n - i;
+    const res = '#'.repeat(i) + " ".repeat(noOfSpaces)
+    console.log(res)
+    i += 1
+  }
+  return
+}
 
 // _________ _______  _______ _________   _______  _______  _______  _______  _______
 // \__   __/(  ____ \(  ____ \\__   __/  (  ____ \(  ___  )(  ____ \(  ____ \(  ____ \

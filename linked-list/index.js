@@ -18,6 +18,50 @@ class LinkedList {
     this.length++;
     this.head = head;
   }
+  getFirst() {
+    return this.head;
+  }
+  getLast() {
+    let cur = this.head;
+    while(cur && cur.next){
+      cur = cur.next;
+    }
+    return cur;
+  }
+  clear() {
+    this.head = null;
+    this.length = 0;
+  }
+  shift() {
+    if(this.head) {
+      const currentHead = this.head;
+      let newHead = currentHead.next;
+      this.head = newHead;
+      this.length -= 1;
+      return currentHead;
+    }
+    return this.head;
+  }
+  pop() {
+    if(!this.head) {
+      return
+    }
+
+    if(this.length === 1) {
+      return this.shift();
+    }
+
+    const last = this.getLast();
+    let curr = this.head;
+
+    while(curr.next !== last) {
+      curr = curr.next
+    }
+
+    curr.next = null;
+    this.length--;
+    return last;
+  }
 }
 
 // _________ _______  _______ _________   _______  _______  _______  _______  _______
@@ -67,7 +111,7 @@ describe('unshift(data)', () => {
 	});
 });
 
-describe.skip('getFirst()', () => {
+describe('getFirst()', () => {
 	it('returns the first node in linked list.', () => {
 		const l = new LinkedList();
 		assert.equal(l.getFirst(), null);
@@ -78,7 +122,7 @@ describe.skip('getFirst()', () => {
 	});
 });
 
-describe.skip('getLast()', () => {
+describe('getLast()', () => {
 	it('returns the last node in linked list.', () => {
 		const l = new LinkedList();
 		l.unshift(1);
@@ -92,7 +136,7 @@ describe.skip('getLast()', () => {
 	});
 });
 
-describe.skip('clear()', () => {
+describe('clear()', () => {
 	it('clears out the linked list and resets length to 0.', () => {
 		const l = new LinkedList();
 		assert.equal(l.length, 0);
@@ -106,7 +150,7 @@ describe.skip('clear()', () => {
 	});
 });
 
-describe.skip('shift()', () => {
+describe('shift()', () => {
 	it('removes AND returns first node, updates length for linked list w/ one node.', () => {
 		const l = new LinkedList();
 		l.unshift(1);
@@ -133,7 +177,7 @@ describe.skip('shift()', () => {
 	});
 });
 
-describe.skip('pop()', () => {
+describe('pop()', () => {
 	it('removes AND returns last node, decreases length.', () => {
 		const l = new LinkedList();
 		l.unshift('b');

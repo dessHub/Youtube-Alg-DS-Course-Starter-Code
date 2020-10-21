@@ -62,6 +62,23 @@ class LinkedList {
     this.length--;
     return last;
   }
+  push(data) {
+    const newNode = new Node(data);
+    if(!this.head) {
+      this.head = newNode;
+      this.length++;
+      return this.length;
+    }
+    if(this.length === 1) {
+      this.head.next = newNode
+      this.length++;
+      return this.length;
+    }
+    const last = this.getLast();
+    this.last.next = newNode;
+    this.length++;
+    return this.length;
+  }
 }
 
 // _________ _______  _______ _________   _______  _______  _______  _______  _______
@@ -200,7 +217,7 @@ describe('pop()', () => {
 	});
 });
 
-describe.skip('push(data)', () => {
+describe('push(data)', () => {
 	it('adds to the end of the list and increases length.', () => {
 		const l = new LinkedList();
 		l.unshift(1);
